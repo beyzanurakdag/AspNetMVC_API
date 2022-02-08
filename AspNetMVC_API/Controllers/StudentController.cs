@@ -12,10 +12,12 @@ using AspNetMVC_API_Entity.Models;
 
 namespace AspNetMVC_API.Controllers
 {
+    [System.Web.Http.RoutePrefix("ogrenci")]
     public class StudentController : ApiController
     {
         //Global Alan
         StudentRepo myStudentRepo = new StudentRepo();
+        [System.Web.Http.Route("")]
         public ResponseData GetAll()
         {
             try
@@ -65,6 +67,7 @@ namespace AspNetMVC_API.Controllers
                 };
             }
         }
+        [System.Web.Http.Route("detay/{id:int:min(1)}")]
         public ResponseData GetDetail(int id)
         {
             try
